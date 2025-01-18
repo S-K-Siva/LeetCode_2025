@@ -3,7 +3,6 @@ public:
     int minCost(vector<vector<int>>& grid) {
         int m = grid.size();
         int n = grid[0].size();
-        vector<pair<int, int>> directions = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
         vector<int> dx = {0,0,1,-1};
         vector<int> dy = {1,-1,0,0};
 
