@@ -5,7 +5,7 @@ select p.product_id, COALESCE(round(
             then p.price * u.units
             else 0
             end
-    )/nullif(sum(case
+    )/coalesce(sum(case
             when u.purchase_date between p.start_date and p.end_date 
             then u.units
             else 0
