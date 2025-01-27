@@ -38,7 +38,7 @@ public:
         // int cnt = 0;
         // int prev = INT_MIN;
         // solve(nums,0,cnt,maxi,prev);
-        // return maxi == INT_MIN ? -1 : maxi;
+        // return maxi == INT_MIN ? 1 : maxi;
 
         // // memo
         // int prev = -1;
