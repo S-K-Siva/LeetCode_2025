@@ -13,14 +13,13 @@ public:
     // memo
     bool solve(vector<int>& nums, int index, int target, vector<vector<int>>& dp) {
         if (target == 0) return true;
-        if (index >= nums.size()) return false;
+        if (index >= nums.size() || target < 0) return false;
 
         if (dp[index][target] != -1) return dp[index][target];
 
-        bool take = false;
-        if (nums[index] <= target) {
-            take = solve(nums, index + 1, target - nums[index], dp);
-        }
+        
+        bool take = solve(nums, index + 1, target - nums[index], dp);
+        
         bool notTake = solve(nums, index + 1, target, dp);
 
         return dp[index][target] = take || notTake;
