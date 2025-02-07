@@ -5,7 +5,7 @@ public:
         unordered_map<int, int> trackColour; 
         vector<int> result;
 
-        for (auto& row : queries) {
+        for (auto row : queries) {
             int ball = row[0];
             int color = row[1];
 
