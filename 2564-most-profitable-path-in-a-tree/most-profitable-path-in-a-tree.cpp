@@ -1,3 +1,4 @@
+//ref
 class Solution {
 public:
     vector<vector<int>> adj;
