@@ -17,9 +17,9 @@ public:
             radiantQue.pop();
             direQue.pop();
             if(rVal < dVal){
-                radiantQue.push(rVal + n);
+                radiantQue.push(rVal + n); //offset
             }else{
-                direQue.push(dVal + n);
+                direQue.push(dVal + n); //offset
             }
         }
         if(!radiantQue.empty()) return "Radiant";
