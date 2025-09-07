@@ -10,16 +10,17 @@
  */
 class Solution {
 public:
-    void solve(ListNode* node, queue<int>& que){
-        if(!node) return;
-        que.push(node->val);
-        solve(node->next,que);
-        node->val = que.front();
-        que.pop(); 
-    }
     ListNode* reverseList(ListNode* head) {
-        queue<int> que;
-        solve(head,que);
-        return head;
+        ListNode *prev = nullptr;
+        ListNode *current = head;
+        ListNode *next = nullptr;
+
+        while(current != nullptr){
+            next = current->next;
+            current->next = prev;
+            prev = current;
+            current = next;
+        }
+        return prev;
     }
 };
