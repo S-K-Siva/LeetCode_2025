@@ -1,35 +1,25 @@
 class Solution {
 public:
-
-
-    string construct(string curr, vector<char> bins,int maxSize,
-    unordered_map<string,int> mpp){
-        if(curr.size() == maxSize){
-            if(mpp.find(curr) == mpp.end()){
-                return curr;
+    string solve(string current,int size, vector<char> binary, unordered_map<string,int>& track){
+        if(current.size() == size){
+            if(track.find(current) == track.end()){
+                return current;
             }
             return "";
         }
-        for(int i = 0;i<bins.size();i++){
-            if(curr.empty() || curr.size() < maxSize){
-                string value = construct(curr+bins[i],bins,maxSize,mpp);
-                if(value != "" && !mpp[value] ){
-                    return value;
-                }
-            }
+        for(int i = 0;i<2;i++){
+            string res = solve(current + binary[i], size, binary, track);
+            if(res != "") return res;
         }
         return "";
     }
-
     string findDifferentBinaryString(vector<string>& nums) {
-        int Size = nums[0].size();
-        vector<char> bins = {'1','0'};
         unordered_map<string,int> track;
-        for(auto binary : nums){
-            ++track[binary];
+        for(auto it : nums){
+            ++track[it];
         }
-        string res = construct("",bins,Size,track);
-        if(res != "") return res;
-        return "";
+        int size = nums.front().size();
+        vector<char> binary = {'1','0'};
+        return solve("", size, binary, track);
     }
 };
